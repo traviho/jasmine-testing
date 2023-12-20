@@ -40,5 +40,21 @@ describe("Helpers test (with setup and tear-down)", function() {
         const td = tr.getElementsByTagName('td')[0];
         expect(td.innerText).toEqual(value);
     });
+
+    it('should append a new delete button to a tr in appendDeleteBtn()', function () {
+        const table = document.createElement("table");
+        
+        const tr = document.createElement("tr");
+        appendDeleteBtn(tr);
+
+        table.appendChild(tr);
+
+        expect(tr.getElementsByTagName('td').length).toEqual(1);
+
+        const td = tr.getElementsByTagName('td')[0];
+        td.click();
+
+        expect(table.children.length).toEqual(0);
+    });
   });
   
